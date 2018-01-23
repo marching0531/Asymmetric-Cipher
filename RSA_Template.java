@@ -23,9 +23,10 @@ public class RSA_test {
             Key publicKey = keyPair.getPublic();
             Key privateKey = keyPair.getPrivate();
             
+	    /*
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             
-            /*RSAPublicKeySpec publicKeySpec = keyFactory.getKeySpec(publicKey, RSAPublicKeySpec.class);
+            RSAPublicKeySpec publicKeySpec = keyFactory.getKeySpec(publicKey, RSAPublicKeySpec.class);
             RSAPrivateKeySpec privateKeySpec = keyFactory.getKeySpec(privateKey, RSAPrivateKeySpec.class);
  
             System.out.println("public key modulus(" + publicKeySpec.getModulus() + ") exponent(" + publicKeySpec.getPublicExponent() + ")");
@@ -41,14 +42,14 @@ public class RSA_test {
             byte[] arrCipherData = cipher.doFinal(inputStr.getBytes());
             String strCipher = new String(arrCipherData);
             
-            System.out.println(strCipher);
+            System.out.println("- Encrypted Plain Message : " + strCipher + "\n\n");
  
             //Decryption Part
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
             byte[] arrData = cipher.doFinal(arrCipherData);
             String strResult = new String(arrData);
  
-            System.out.println(strResult);
+            System.out.println("- Decrypted Cipher Message : " + strResult);
             
         } catch (Exception e) {
         	
